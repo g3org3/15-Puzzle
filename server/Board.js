@@ -43,6 +43,33 @@ exports.Board = function Board (matrix) {
   this.shuffle = () => {
     this.matrix = shuffle(this.matrix)
     this.zeroPosition = this.searchZero(this.matrix)
+    return this
+  }
+
+  this.dirs = {
+    UP: 0,
+    DOWN: 1,
+    LEFT: 2,
+    RIGHT: 3
+  }
+
+  this.moveDirection = (dir) => {
+    const { UP, DOWN, LEFT, RIGHT } = this.dirs
+    const { zcol, zrow } = this.zeroPosition
+    switch(dir) {
+      case UP: {
+        return this.move(zrow - 1, zcol)
+      }
+      case DOWN: {
+        return this.move(zrow + 1, zcol)
+      }
+      case LEFT: {
+        return this.move(zrow, zcol - 1)
+      }
+      case RIGHT: {
+        return this.move(zrow, zcol + 1)
+      }
+    }
   }
 
   /**

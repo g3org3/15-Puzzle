@@ -12,20 +12,30 @@ import {
   FooterTab,
   Content,
 } from 'native-base'
+import { Board } from '../server/Board';
 
 export default class App extends React.Component {
-  //checking state for if font is loaded or not.
-  state = {
-    fontLoaded: false,
+  constructor (props) {
+    super(props)
+    this.handleSolve = this.handleSolve.bind(this)
+    this.handleShuffle = this.handleShuffle.bind(this)
   }
   async componentDidMount() {
     await Expo.Font.loadAsync({
       'Roboto': require('native-base/Fonts/Roboto.ttf'),
       'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
     })
-    //Setting the state to true when font is loaded.
-    this.setState({ fontLoaded: true })
   }
+
+  handleSolve() {
+    const solvable = this.props.matrix.isSolvable()
+    this.props.toast(solvable? 'This can be solvable' : 'this can not be solvable')
+  }
+
+  handleShuffle() {
+    this.props.shuffleBoard()
+  }
+
   render() {
     return (
       <Container>
@@ -37,11 +47,11 @@ export default class App extends React.Component {
         </Content>
         <Footer>
           <FooterTab>
-            <Button active>
+            <Button onPress={this.handleShuffle}>
               <Icon name="apps" />
               <Text>Shuffle</Text>
             </Button>
-            <Button>
+            <Button onPress={this.handleSolve}>
               <Icon name="person" />
               <Text>Solve</Text>
             </Button>

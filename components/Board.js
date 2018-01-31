@@ -1,33 +1,16 @@
 import React from 'react'
-import { Button, Text, H1, Col, Grid, Row, Container, Toast } from 'native-base';
+import { Button, Text, H1, Col, Grid, Row, Container } from 'native-base';
 import { StyleSheet } from 'react-native'
 import {Board as BoardX} from '../server/Board'
 
 export default class Board extends React.Component {
 
-  constructor(props) {
-    super(props)
-    // this.movePiece = this.movePiece.bind(this)
-    this.state = {
-      board: new BoardX()
-    }
-  }
-
   getMatrix () {
-    return this.state.board.getMatrix()
+    return this.props.matrix.getMatrix()
   }
 
   movePiece (col) {
-    try {
-      const board = this.state.board.moveNumber(Number(col.val))
-      this.setState({ board });
-    } catch (e) {
-      Toast.show({
-        text: e.message,
-        position: 'bottom',
-        buttonText: 'Okay'
-      })
-    }
+    this.props.movePiece(col)
   }
 
   render() {
