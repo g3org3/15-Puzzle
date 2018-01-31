@@ -72,6 +72,19 @@ exports.Board = function Board (matrix) {
     }
   }
 
+  this.isBoardSolved = () => {
+    const solution = [
+      [' 1', ' 2', ' 3', ' 4'],
+      [' 5', ' 6', ' 7', ' 8'],
+      [' 9', '10', '11', '12'],
+      ['13', '14', '15', ' 0']
+    ]
+    const correctness = this.matrix.map((row, r) => 
+      row.map((col, c) => 
+        col == solution[r][c]))
+    return correctness
+  }
+
   /**
    * moveNumber
    * @param num
@@ -160,9 +173,10 @@ exports.Board = function Board (matrix) {
 
   this.getMatrix = () => {
     const matrix = [[0, 1, 2, 3], [0, 1, 2, 3], [0, 1, 2, 3], [0, 1, 2, 3]]
-    this.matrix.map((row, c) => {
-      row.map((col, r) => {
-        matrix[r][c] = { val: col, color: '#333' }
+    const correctness = this.isBoardSolved()
+    this.matrix.map((row, r) => {
+      row.map((col, c) => {
+        matrix[c][r] = { val: col, color: '#333', valid: correctness[r][c] }
       })
     })
     return matrix

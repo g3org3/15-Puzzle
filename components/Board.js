@@ -22,11 +22,11 @@ export default class Board extends React.Component {
               {row.map((col, cindex) => (
                 <Col key={`${rindex}-${cindex}`} style={{
                   borderWidth: 1,
-                  borderColor: '#fff',
-                  backgroundColor: col.color,
+                  borderColor: '#FFF',
+                  backgroundColor: col.valid? 'green': col.color,
                   height: 200
                 }}>
-                  <Text onPress={this.movePiece.bind(this, col)} style={styles.text}>
+                  <Text onPress={this.movePiece.bind(this, col)} style={styles(col.valid).text}>
                     {col.val!==' 0'? col.val : '-'}
                   </Text>
                 </Col>
@@ -39,7 +39,7 @@ export default class Board extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({
+const styles = (flag) => StyleSheet.create({
   title: {
     fontSize: 19,
     fontWeight: 'bold',
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     color: 'red',
   },
   text: {
-    color: 'white',
+    color: 'white', //flag? '#75B9BE' : 'white',
     fontSize: 100,
     textAlign: 'center'
   }
