@@ -2,6 +2,10 @@
 
 ## Getting Started
 
+## Report
+```check the file report.pdf at the root
+```
+
 ## Installation
 ```sh
 make install
