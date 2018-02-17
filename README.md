@@ -20,9 +20,9 @@ make mobile-app
 
 ## To test in your phone
 Expo Client
-[click here to download expo client in your phone](https://expo.io/tools#client)
-[ios link](https://itunes.apple.com/app/apple-store/id982107779?ct=www&mt=8)
-[android link](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www)
+- [click here to download expo client in your phone](https://expo.io/tools#client)
+- [ios link](https://itunes.apple.com/app/apple-store/id982107779?ct=www&mt=8)
+- [android link](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www)
 
 ## Contributors
 * Jorge Adolfo Gonzalez
