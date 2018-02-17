@@ -1,0 +1,6 @@
+version: '2'
+services:
+  app:
+    image: registry.jorgeadolfo.com/rest-server:latest
+    ports:
+      - 1234:2914
