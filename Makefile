@@ -1,10 +1,10 @@
 install:
 	chmod +x install.sh && ./install.sh
 
-start-server:
+rest-server:
 	cd rest-server && npm start
 
-start-mobile:
+mobile-app:
 	npm start
 
 docs:
