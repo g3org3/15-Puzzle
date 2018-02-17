@@ -24,6 +24,8 @@ Expo Client
 - [ios link](https://itunes.apple.com/app/apple-store/id982107779?ct=www&mt=8)
 - [android link](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www)
 
+[![QR Code](https://github.com/g3org3/15-Puzzle/raw/master/server/qr-code.png)]()
+
 ## Contributors
 * Jorge Adolfo Gonzalez
 * Kenny Alvizuris
