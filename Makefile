@@ -8,4 +8,4 @@ start-mobile:
 	npm start
 
 docs:
-	open docs/index.html
+	open rest-server/docs/index.html
